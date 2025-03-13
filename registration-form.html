@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    
+    <!-- Replace https://formspree.io/f/mzzebwdj with your actual Formspree endpoint -->
+    <form action="https://formspree.io/f/https://formspree.io/f/mzzebwdj" method="POST" id="registrationForm">
+        <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <input type="text" id="fullName" name="fullName" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+        </div>
+        
+        <div class="form-group">
+            <label for="organization">Organization/Company</label>
+            <input type="text" id="organization" name="organization">
+        </div>
+        
+        <div class="form-group">
+            <label for="role">Role/Position</label>
+            <input type="text" id="role" name="role">
+        </div>
+        
+        <div class="form-group">
+            <label for="interest">Primary Interest *</label>
+            <select id="interest" name="interest" required>
+                <option value="">-- Select an option --</option>
+                <option value="member">Become a Member</option>
+                <option value="partner">Partnership Opportunities</option>
+                <option value="sponsor">Sponsorship</option>
+                <option value="volunteer">Volunteer</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="message">Additional Information</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <button type="submit">Register</button>
+        </div>
+    </form>
+
+    <script>
+        const form = document.getElementById('registrationForm');
+        
+        form.addEventListener('submit', function(event) {
+            // Basic form validation
+            let isValid = true;
+            const requiredFields = form.querySelectorAll('[required]');
+            
+            requiredFields.forEach(field => {
+                // Remove any existing error messages
+                const existingError = field.parentNode.querySelector('.error');
+                if (existingError) {
+                    existingError.remove();
+                }
+                
+                if (!field.value.trim()) {
+                    isValid = false;
+                    const errorMsg = document.createElement('div');
+                    errorMsg.className = 'error';
+                    errorMsg.textContent = 'This field is required';
+                    field.parentNode.appendChild(errorMsg);
+                }
+            });
+            
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
