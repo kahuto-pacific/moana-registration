@@ -45,12 +45,61 @@
             font-size: 0.9em;
             margin-top: 5px;
         }
+        .pricing-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4CAF50;
+        }
+        .pricing-info h2 {
+            margin-top: 0;
+            color: #2E7D32;
+        }
+        .pricing-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .pricing-link {
+            display: inline-block;
+            background-color: #E8F5E9;
+            color: #2E7D32;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            border: 1px solid #81C784;
+            transition: background-color 0.3s;
+        }
+        .pricing-link:hover {
+            background-color: #C8E6C9;
+        }
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
     <h1>Registration Form</h1>
     
-    <!-- Replace https://formspree.io/f/mzzebwdj with your actual Formspree endpoint -->
+    <div class="pricing-info">
+        <h2>Moana Data Pricing Models</h2>
+        <p>Before registering, please review our pricing models to select the option that best fits your needs:</p>
+        <div class="pricing-links">
+            <a href="subscriptions-pricing-models.html" class="pricing-link" target="_blank">Subscription Plans</a>
+            <a href="pay-per-area-pricing-model.html" class="pricing-link" target="_blank">Pay-Per-Area Model</a>
+        </div>
+    </div>
+    
+    <div id="successMessage" class="success-message">
+        Thank you for registering! We'll be in touch soon.
+    </div>
+    
     <form action="https://formspree.io/f/mzzebwdj" method="POST" id="registrationForm">
         <div class="form-group">
             <label for="fullName">Full Name *</label>
@@ -78,13 +127,13 @@
         </div>
         
         <div class="form-group">
-            <label for="interest">Subscription Type *</label>
-            <select id="interest" name="interest" required>
+            <label for="subscription">Subscription Type *</label>
+            <select id="subscription" name="subscription" required>
                 <option value="">-- Select an option --</option>
-                <option value="member">Moana Lite</option>
-                <option value="partner">Moana Plus</option>
-                <option value="sponsor">Moana Pro</option>
-                <option value="volunteer">Pay-Per-Area</option>
+                <option value="Moana Lite">Moana Lite ($250-500/month)</option>
+                <option value="Moana Plus">Moana Plus ($1,000-2,500/month)</option>
+                <option value="Moana Pro">Moana Pro ($5,000-10,000/month)</option>
+                <option value="Pay-Per-Area">Pay-Per-Area (Variable pricing)</option>
             </select>
         </div>
         
@@ -100,6 +149,7 @@
 
     <script>
         const form = document.getElementById('registrationForm');
+        const successMessage = document.getElementById('successMessage');
         
         form.addEventListener('submit', function(event) {
             // Basic form validation
@@ -126,6 +176,12 @@
                 event.preventDefault();
             }
         });
+        
+        // Check if the form was successfully submitted (Formspree redirects back with ?success=true)
+        if (window.location.search.includes('success=true')) {
+            form.style.display = 'none';
+            successMessage.style.display = 'block';
+        }
     </script>
 </body>
 </html>
