@@ -4,6 +4,8 @@
 
 This document outlines the Pay-Per-Area pricing model for Moana's geospatial data platform, specializing in providing geospatial data for the Pacific Islands region. The model scales pricing based on area size, data type, and resolution quality.
 
+All pricing in Fijian Dollars (FJD)
+
 ## Supported Data Types
 
 - **Vector Data**: Shapefiles and MapInfo format

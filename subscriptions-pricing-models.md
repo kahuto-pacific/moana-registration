@@ -1,6 +1,7 @@
 # Moana Data Pricing Models
 
 ### 1. **Subscription-Based Models**
+All pricing in Fijian Dollars (FJD)
 
 #### Moana Lite
 - **Moana Lite**: $250-500/month
