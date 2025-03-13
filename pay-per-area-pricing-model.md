@@ -61,25 +61,10 @@ For a 50 km² area of high-resolution LiDAR data:
 - Remote island coverage may include accessibility premiums
 - Multi-island packages offer discounted rates for contiguous coverage
 
-### Licensing Options
-
-- One-time purchase: Full price
-- Annual subscription: 25% discount on subsequent years
-- Academic/Research: 40% discount with appropriate credentials
-
 ### Custom Processing
 
 - Additional fees may apply for custom processing requirements
 - Specialized formats or projections available upon request
-
-## Implementation
-
-The pricing model can be integrated into Digital Moana's platform through:
-
-1. An interactive map-based selection tool
-2. Area calculation based on user-defined polygons
-3. Dropdown menus for data type and resolution selection
-4. Real-time price estimation before purchase confirmation
 
 ## Review Schedule
 
